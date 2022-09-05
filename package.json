@@ -1,0 +1,21 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Online Education Portal",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "education",
+    "node.js"
+  ],
+  "author": "Yakup Kalaycı",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
