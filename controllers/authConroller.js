@@ -40,8 +40,14 @@ exports.loginUser = async (req, res) => {
     }
 }
 
-exports.logoutUser = async (req, res) => {
+exports.logoutUser = (req, res) => {
     req.session.destroy(() => {
-        req.redirect("/");
-    })
+        res.redirect("/");
+    });
+}
+
+exports.getDashboardPage = async (req, res) => {
+    res.render("dashboard", {
+        page_name: "dashboard"
+    });
 }
