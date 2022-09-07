@@ -21,7 +21,11 @@ const UserSchema = new Schema({
         type: String,
         enum: ["student", "teacher", "admin"],
         default: "stundet"
-    }
+    },
+    courses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Course'
+    }]
 });
 
 UserSchema.pre("save", function(next) {
@@ -30,7 +34,7 @@ UserSchema.pre("save", function(next) {
         user.password = hash;
         next();
     });
-})
+});
 
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
