@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const ejs = require("ejs");
+const flash = require("connect-flash");
+
 
 const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
@@ -29,6 +31,11 @@ app.use(session({
     saveUninitialized: true,
     store: MongoStore.create({mongoUrl: "mongodb://localhost/smartedu-DB"})
 }));
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.flashMessages = req.flash();
+    next();
+});
 
 //Template Engine
 app.set("view engine", "ejs"); 
