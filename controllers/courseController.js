@@ -15,7 +15,7 @@ exports.createCourse = async (req, res) => {
     res.status(201).redirect("/courses");
   } catch (error) {
     req.flash("error", "Something happened!");
-    res.status(200).redirect("/courses");
+    res.status(400).redirect("/courses");
   }
 };
 
